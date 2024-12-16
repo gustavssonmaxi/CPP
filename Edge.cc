@@ -1,6 +1,6 @@
 #include "Edge.h"
  
-
+//agien
 /** Skapa en ny båge till noden destination, med längden length. */
 Edge::Edge(Node* destination, int length){
     destinationNode = destination;
