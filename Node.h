@@ -2,6 +2,7 @@
 #define NODE_H
 #include <string>
 #include <vector>
+#include "Edge.h"
 
 // Forward declaration Edge
 class Edge;
