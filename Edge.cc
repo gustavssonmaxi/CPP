@@ -8,7 +8,7 @@ Edge::Edge(Node* destination, int length){
 }
 
 /** Hämtar bågens destination. */
-Node* Edge::getDestination(){
+Node* Edge::getDestination(){//this is a test
     return destinationNode;
 }
 
