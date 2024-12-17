@@ -2,11 +2,11 @@
 #include <vector>
 #include <string>
 #include "Node.h"
-#include "Graph.h" 
-#include "dijkstra.h" 
+#include "Graph.h"
+#include "dijkstra.h"
 
-
-int main(){
+int main() {
+    // väntar på iostream? i konstruktorn
     Graph graph("graph.txt");
 
     std::string startNode, endNode;
@@ -15,6 +15,7 @@ int main(){
     std::cout << "Ange destinationsnod: ";
     std::cin >> endNode;
 
+    // Hitta start- och slutnoder
     Node* start = graph.find(startNode);
     Node* end = graph.find(endNode);
 
@@ -23,10 +24,29 @@ int main(){
         return 1;
     }
 
+    // Återställ noder och kör dijkstra
     graph.resetVals();
     dijkstra(start);
 
-    std::cout << "Kortaste avstånd från " << startNode << " till " << endNode << ": " << end->getValue() << "\n";
+    // Kontrollera om en väg hittades
+ /*   if (end->getValue() == std::numeric_limits<int>::max()) {
+        std::cout << "Ingen väg hittades mellan " << startNode << " och " << endNode << "\n";
+        return 1;
+    }*/
+
+    // Samla alla noder längs vägen från mål till start
+    std::vector<std::string> path;
+    Node* current = end;
+
+    while (current) {
+        path.push_back(current->getName());
+        current = current->getParent();
+    }
+
+    std::cout << "Kortaste väg: ";
+    for (const auto& name : path) {
+        std::cout << name << " ";
+    }
+    std::cout << end->getValue() << "\n";
     return 0;
 }
-
