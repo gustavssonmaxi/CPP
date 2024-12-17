@@ -25,9 +25,7 @@ PROGS = test_nodeset testEdge test_dijkstra
 
 all: $(PROGS)
 
-#
-# Byt till bättre namn istället 
-#
+
 nodeset_test: test_nodeset
 	./test_nodeset
 
