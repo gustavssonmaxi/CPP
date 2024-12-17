@@ -30,10 +30,30 @@ public:
     /** Hämtar de bågar som utgår från denna nod. */
     const std::vector<Edge>& getEdges() const;
 
+
+
+
+
+    /** Sätter föregångaren (parent) för kortaste vägen. */
+    void setParent(Node* p);
+
+    /** Hämtar föregångaren (parent) för kortaste vägen. */
+    Node* getParent() const;
+
+
+
+
+
 private:
     std::string nodeName;
     int nodeValue;
     std::vector<Edge> edgeVector;
+   
+   
+    Node* parent; // Ny medlemsvariabel för att spåra föregångaren
+
+
+
 
 };
  #endif
