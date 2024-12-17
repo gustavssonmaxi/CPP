@@ -25,13 +25,16 @@ PROGS = test_nodeset testEdge test_dijkstra
 
 all: $(PROGS)
 
-test_test_nodeset: test_nodeset
+#
+# Byt till bättre namn istället 
+#
+nodeset_test: test_nodeset
 	./test_nodeset
 
-test_testEdge: testEdge
+edge_test: testEdge
 	./testEdge
 
-test_test_dijkstra: test_dijkstra
+dijkstra_test: test_dijkstra
 	./test_dijkstra
 
 # Targets rely on implicit rules for compiling and linking
@@ -49,7 +52,6 @@ clean:
 
 distclean: clean
 	rm *.d
-
 
 # Include the *.d files
 SRC = $(wildcard *.cc)
