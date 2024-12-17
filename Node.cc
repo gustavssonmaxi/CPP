@@ -35,11 +35,6 @@ const std::vector<Edge>& Node::getEdges() const{
     return edgeVector;
 }
 
-
-
-
-
-
 /** Sätter föregångaren (parent) för kortaste vägen. */
 void Node::setParent(Node* p) {
     parent = p;

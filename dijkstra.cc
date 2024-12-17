@@ -21,7 +21,7 @@ void dijkstra(Node* start){
             Node *destNode = edge.getDestination();         //Tar ut dess destination
             int newLength = node->getValue() + length;      //Räknar ut dess värde relativt startnoden
             
-            if (newLength < destNode->getValue()) {           // Kollar om det nya värdet är mindre än tidigare beräknad väg
+            if (newLength < destNode->getValue()) {          // Kollar om det nya värdet är mindre än tidigare beräknad väg
                 destNode->setValue(newLength);               // Uppdatera värdet för destinationen
                 destNode->setParent(node);                   // Uppdatera parent (föregångaren) till den nuvarande noden
                 dijkstraNodes.add(destNode);                 // Lägg till noden i mängden för bearbetning
