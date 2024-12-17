@@ -37,7 +37,7 @@ test_test_dijkstra: test_dijkstra
 # Targets rely on implicit rules for compiling and linking
 test_nodeset: test_nodeset.o NodeSet.o Node.o Edge.o 
 testEdge: testEdge.o Edge.o Node.o
-test_dijkstra: test_dijkstra.o dijkstra.o Node.o
+test_dijkstra: test_dijkstra.o NodeSet.o Node.o Edge.o dijkstra.o 
  
 
 # Phony targets
