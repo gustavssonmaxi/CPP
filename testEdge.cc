@@ -8,7 +8,7 @@ int main(){
     Edge E(&N, 5);
     std::cout << "Stad: "<< E.getDestination()->getName() << ", Avstånd: "<<E.getLength() << std::endl;
     */
-   Node lund{"Lund"};
+    Node lund{"Lund"};
     Node dalby{"Dalby"};
     Node sandby{"Sodra Sandby"};
     Node hallestad{"Torna Hallestad"};
@@ -21,6 +21,7 @@ int main(){
     sandby.addEdge(&lund,12);
     sandby.addEdge(&flyinge,4);
     hallestad.addEdge(&veberod,8);
+    
     std::cout << "Anslutningar från " <<dalby.getName() << "(" << dalby.getValue() << ") :\n";
     for(auto de : dalby.getEdges()){
         std::cout << de.getLength() << " to " << de.getDestination()->getName() << std::endl;

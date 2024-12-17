@@ -36,7 +36,7 @@ void test()
 
 
 #ifdef INFO
-    cout << "----\nAll distances from Lund:\n";
+    cout << "----\nAll distances from Lund:" << endl;
 
     for(auto& t : {lund, dalby, sandby, hallestad, veberod, flyinge}) {
         cout << t.getName() << " : " << t.getValue() << " ";
