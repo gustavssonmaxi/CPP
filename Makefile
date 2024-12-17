@@ -38,8 +38,7 @@ test_test_dijkstra: test_dijkstra
 test_nodeset: test_nodeset.o NodeSet.o Node.o Edge.o 
 testEdge: testEdge.o Edge.o Node.o
 test_dijkstra: test_dijkstra.o dijkstra.o Node.o
-
-
+ 
 
 # Phony targets
 .PHONY: all test clean distclean
