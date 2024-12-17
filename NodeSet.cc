@@ -31,7 +31,7 @@ Node* NodeSet::removeMin(){
     if(nodeVector.empty()){   //Om nodeVector är tom retuneras en nollpekare
         return nullptr;
     }
-    std::sort(nodeVector.begin(), nodeVector.end(),        // Sortera vektorn med lägsta value först
+    std::sort(nodeVector.begin(), nodeVector.end(),             // Sortera vektorn med lägsta value först
     [](Node* a , Node* b){return a->getValue() < b->getValue();});
 
     Node* minNode = nodeVector.front();                         // Retunerar referens till första noden
