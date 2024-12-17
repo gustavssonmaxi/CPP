@@ -1,0 +1,32 @@
+Lund: 12 Dalby
+Lund: 12 Sodra Sandby
+Lund: 10 Lomma
+Lund: 12 Staffanstorp
+Lund: 19 Kavlinge
+Dalby: 12 Sodra Sandby
+Dalby: 5 Torna Hallestad
+Dalby: 8 Staffanstorp
+Dalby: 12 Lund
+Dalby: 11 Veberod
+Veberod: 11 Dalby
+Veberod: 8 Torna Hallestad
+Sodra Sandby: 12 Lund
+Sodra Sandby: 4 Flyinge
+Sodra Sandby: 8 Torna Hallestad
+Sodra Sandby: 25 Kavlinge
+Torna Hallestad: 8 Veberod
+Torna Hallestad: 8 Sodra Sandby
+Staffanstorp: 8 Dalby
+Staffanstorp: 11 Lund
+Staffanstorp: 16 Lomma
+Lomma: 10 Lund
+Lomma: 7 Bjarred
+Lomma: 20 Kavlinge
+Lomma: 16 Staffanstorp
+Bjarred: 7 Lomma
+Bjarred: 11 Lund
+Bjarred: 13 Kavlinge
+Kavlinge: 13 Bjarred
+Kavlinge: 19 Lund
+Kavlinge: 20 Lomma
+Kavlinge: 25 Sodra Sandby
