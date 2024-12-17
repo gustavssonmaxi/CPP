@@ -21,7 +21,7 @@ LDFLAGS =   -g
 #LDFLAGS +=  -stdlib=libc++
 
 # Targets
-PROGS = test_nodeset testEdge test_dijkstra
+PROGS = test_nodeset testEdge test_dijkstra main
 
 all: $(PROGS)
 
@@ -35,11 +35,14 @@ edge_test: testEdge
 dijkstra_test: test_dijkstra
 	./test_dijkstra
 
+test_main: main
+	./main
+
 # Targets rely on implicit rules for compiling and linking
 test_nodeset: test_nodeset.o NodeSet.o Node.o Edge.o 
 testEdge: testEdge.o Edge.o Node.o
 test_dijkstra: test_dijkstra.o NodeSet.o Node.o Edge.o dijkstra.o 
- 
+ main:
 
 # Phony targets
 .PHONY: all test clean distclean
