@@ -32,7 +32,8 @@ int main() {
         }
 
         // Kör Dijkstra-algoritmen med startnoden
-        dijkstra(start);
+        Dijkstra dijkstra(start);
+
 
         // Hitta slutnoden
         Node* end = graph.find(endNode);
@@ -42,7 +43,7 @@ int main() {
         }
 
         // Anropa Dijkstra för att skriva ut vägen och avståndet
-        // dijkstra.printPath(end);
+        dijkstra.printPath(end);
 
     } catch (const std::exception& e) {
         std::cerr << "Fel: " << e.what() << std::endl;

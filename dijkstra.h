@@ -8,6 +8,10 @@
     Alla noder förutsätts, när funktionen anropas, ha ett värde som är
     större än alla faktiska avstånd i grafen.
     */
-    void dijkstra(Node* start);
+   class Dijkstra {
+    public:
+        explicit Dijkstra(Node* start);
+        void printPath(Node* end) const;
+   };
 
     #endif

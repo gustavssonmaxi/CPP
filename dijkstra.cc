@@ -1,14 +1,15 @@
+#include <vector>
+#include <iostream>
 #include "dijkstra.h"
 #include "NodeSet.h"
 
-#include <vector>
 
 /** Dijkstras algoritm. Varje nod som kan nås från start ges ett värde,
 där värdet anger det kortaste avståndet från noden start.
 Alla noder förutsätts, när funktionen anropas, ha ett värde som är
 större än alla faktiska avstånd i grafen.
 */
-void dijkstra(Node* start){
+Dijkstra::Dijkstra(Node* start){
     start->setValue(0);                                     //Sätter startnodes längd till sig själv till 0
     NodeSet dijkstraNodes{};                                //Skapar en tom nodeset
     dijkstraNodes.add(start);                               //Lägger till startnoden till nodeset
@@ -28,4 +29,35 @@ void dijkstra(Node* start){
             }        
         }
     }
+}
+
+void Dijkstra::printPath(Node* end) const {
+    if (!end) {
+        std::cerr << "Slutnoden är null!" << std::endl;
+        return;
+    }
+
+    // Kontrollera om noden är nåbar
+    if(end->getValue() == std::numeric_limits<int>::max()) {
+        std::cout << "Ingen väg till " << end->getName() << " från startnoden." << std::endl;
+        return;
+    }
+
+    // Samla vägen i en vektor
+    std::vector<std::string> path;
+    Node* current = end;
+
+    // Backtracka med hjälp av parent-pekare
+    while(current) {
+        path.push_back(current->getName());
+        current = current->getParent();
+    }
+
+    // Skriv ut vägen i rätt ordning
+    for (auto it = path.rbegin(); it != path.rend(); ++it) {
+        std::cout << *it << " ";
+    }
+
+    // Skriv ut det totala avståndet
+    std::cout << end->getValue() << std::endl;
 }

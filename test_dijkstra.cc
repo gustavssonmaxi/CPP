@@ -25,7 +25,7 @@ void test()
     sandby.addEdge(&flyinge,4);
     hallestad.addEdge(&veberod,8);
 
-    dijkstra(&lund);
+    Dijkstra dijkstra(&lund);
 
     assert(lund.getValue() == 0);
     assert(dalby.getValue() == 12);
