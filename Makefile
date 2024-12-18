@@ -42,7 +42,7 @@ test_main: main
 test_nodeset: test_nodeset.o NodeSet.o Node.o Edge.o 
 testEdge: testEdge.o Edge.o Node.o
 test_dijkstra: test_dijkstra.o NodeSet.o Node.o Edge.o dijkstra.o 
- main: Node.o Graph.o dijkstra.o
+ main: main.o Node.o Graph.o dijkstra.o Edge.o NodeSet.o
 
  
 # Phony targets

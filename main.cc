@@ -7,7 +7,7 @@
 
 int main() {
     // väntar på iostream? i konstruktorn
-     Graph graph("graph.txt");
+    Graph graph("graf.txt");
 
     std::string startNode, endNode;
     std::cout << "Ange startnod: ";

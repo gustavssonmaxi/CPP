@@ -1,14 +1,27 @@
-#include "Graph.h"
 #include <algorithm>
 #include <memory>
 #include <limits>
+#include "Graph.h"
+#include <fstream>
+#include <sstream>
 
-Graph::Graph() {
-    
+
+Graph::Graph(const std::string& filename) {
+    std::ifstream file(filename); // Öppna filen
+
+    if (!file) {
+    throw std::runtime_error("\nKunde inte öppna filen: " + filename);
+    }
+
 }
 
 void Graph::addNode(const std::string& node) {
     if (find(node) == nullptr) {
+        
+        // MAKE_UNIQUE FINNS INTE I C++11
+        // nodeVector.push_back(std::unique_ptr<Node>(new Node(node))); 
+        // ÄR ETT ALTERNATIV
+
         nodeVector.push_back(std::make_unique<Node>(node)); // Using make_unique instead of new
     }
 }

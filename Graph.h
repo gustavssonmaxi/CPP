@@ -10,7 +10,7 @@ class Graph{
 
 public:
 
-    Graph();
+    Graph(const std::string& filename);
     //Lägger till noden i nodeVector
     void addNode(const std::string& addNodeName);
 
