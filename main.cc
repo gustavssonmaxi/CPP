@@ -1,52 +1,53 @@
 #include <iostream>
-#include <vector>
-#include <string>
-#include "Node.h"
+#include <fstream>
 #include "Graph.h"
 #include "dijkstra.h"
 
 int main() {
-    // väntar på iostream? i konstruktorn
-    Graph graph("graf.txt");
+    const std::string fileName = "graf.txt"; // Fast filnamn
+    std::ifstream inputFile(fileName);
 
-    std::string startNode, endNode;
-    std::cout << "Ange startnod: ";
-    std::cin >> startNode;
-    std::cout << "Ange destinationsnod: ";
-    std::cin >> endNode;
-
-    // Hitta start- och slutnoder
-    Node* start = graph.find(startNode);
-    Node* end = graph.find(endNode);
-
-    if (!start || !end) {
-        std::cerr << "Ogiltig start- eller slutnod\n";
+    if (!inputFile.is_open()) {
+        std::cerr << "Kunde inte öppna filen: " << fileName << std::endl;
         return 1;
     }
 
-    // Återställ noder och kör dijkstra
-    graph.resetVals();
-    dijkstra(start);
+    try {
+        // Skapa grafen från indatafilen
+        Graph graph(inputFile);
+        std::cout << "Grafen har skapats framgångsrikt från filen: " << fileName << std::endl;
 
-    // Kontrollera om en väg hittades
- /*   if (end->getValue() == std::numeric_limits<int>::max()) {
-        std::cout << "Ingen väg hittades mellan " << startNode << " och " << endNode << "\n";
+        // Fråga användaren efter start- och slutnod
+        std::string startNode, endNode;
+        std::cout << "Ange startnod: ";
+        std::cin >> startNode;
+        std::cout << "Ange slutnod: ";
+        std::cin >> endNode;
+
+        // Hitta startnoden i grafen
+        Node* start = graph.find(startNode);
+        if (!start) {
+            std::cerr << "Startnoden '" << startNode << "' finns inte i grafen." << std::endl;
+            return 1;
+        }
+
+        // Kör Dijkstra-algoritmen med startnoden
+        dijkstra(start);
+
+        // Hitta slutnoden
+        Node* end = graph.find(endNode);
+        if (!end) {
+            std::cerr << "Slutnoden '" << endNode << "' finns inte i grafen." << std::endl;
+            return 1;
+        }
+
+        // Anropa Dijkstra för att skriva ut vägen och avståndet
+        // dijkstra.printPath(end);
+
+    } catch (const std::exception& e) {
+        std::cerr << "Fel: " << e.what() << std::endl;
         return 1;
-    }*/
-
-    // Samla alla noder längs vägen från mål till start
-    std::vector<std::string> path;
-    Node* current = end;
-
-    while (current) {
-        path.push_back(current->getName());
-        current = current->getParent();
     }
 
-    std::cout << "Kortaste väg: ";
-    for (const auto& name : path) {
-        std::cout << name << " ";
-    }
-    std::cout << end->getValue() << "\n";
     return 0;
 }
