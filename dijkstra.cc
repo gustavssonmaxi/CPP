@@ -29,3 +29,25 @@ void dijkstra(Node* start){
         }
     }
 }
+
+void dijkstraFunction(Node *start, int (*f)(Node *, Edge &))
+{
+	start->setValue(0);
+	NodeSet s;
+	s.add(start);
+	while (!s.isEmpty())
+	{
+		Node *n = s.removeMin();
+		for (Edge e : n->getEdges())
+		{
+			int a = f(n, e);
+			Node *d = e.getDestination();
+			if (a < d->getValue())
+			{
+				d->setValue(a);
+				d->setParent(n);
+				s.add(d);
+			}
+		}
+	}
+}
