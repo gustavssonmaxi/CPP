@@ -10,10 +10,6 @@ Graph::Graph(){
 
 }
 
-#include <sstream>
-#include <stdexcept>
-#include "Graph.h"
-
 Graph::Graph(std::istream& in) {
     std::string line;
     while (std::getline(in, line)) {
