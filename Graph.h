@@ -9,8 +9,9 @@
 class Graph{
 
 public:
+    Graph();
 
-    Graph(const std::string& filename);
+    Graph(std::istream& in);
     //Lägger till noden i nodeVector
     void addNode(const std::string& addNodeName);
 

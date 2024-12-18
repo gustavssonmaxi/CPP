@@ -2,26 +2,58 @@
 #include <memory>
 #include <limits>
 #include "Graph.h"
-#include <fstream>
+// #include <fstream>
 #include <sstream>
 
 
-Graph::Graph(const std::string& filename) {
-    std::ifstream file(filename); // Öppna filen
-
-    if (!file) {
-    throw std::runtime_error("\nKunde inte öppna filen: " + filename);
-    }
+Graph::Graph(){
 
 }
+
+#include <sstream>
+#include <stdexcept>
+#include "Graph.h"
+
+Graph::Graph(std::istream& in) {
+    std::string line;
+    while (std::getline(in, line)) {
+        std::istringstream lineStream(line);
+        std::string startNode, endNode;
+        int distance;
+
+        if (std::getline(lineStream, startNode, ':') && 
+            lineStream >> distance && 
+            std::getline(lineStream, endNode)) {
+
+            // Trimma whitespace
+            startNode.erase(0, startNode.find_first_not_of(" \t"));
+            startNode.erase(startNode.find_last_not_of(" \t") + 1);
+            endNode.erase(0, endNode.find_first_not_of(" \t"));
+            endNode.erase(endNode.find_last_not_of(" \t") + 1);
+
+            // Lägg till noder och bågen
+            addNode(startNode);
+            addNode(endNode);
+
+            Node* start = find(startNode);
+            Node* end = find(endNode);
+
+            if (start && end) {
+                start->addEdge(end, distance);
+            } else {
+                throw std::runtime_error("Kunde inte lägga till båge mellan " + startNode + " och " + endNode);
+            }
+        } else {
+            throw std::invalid_argument("Felaktigt format i indata: " + line);
+        }
+    }
+}
+
 
 void Graph::addNode(const std::string& node) {
     if (find(node) == nullptr) {
         
-        // MAKE_UNIQUE FINNS INTE I C++11
         nodeVector.push_back(std::unique_ptr<Node>(new Node(node))); 
-        // ÄR ETT ALTERNATIV
-
         // nodeVector.push_back(std::make_unique<Node>(node)); // Using make_unique instead of new
     }
 }
