@@ -30,7 +30,7 @@ void dijkstra(Node* start){
     }
 }
 
-void dijkstraFunction(Node *start, int (*f)(Node *, Edge &))
+void generalDijkstra(Node *start, int (*f)(Node *, Edge &))
 {
 	start->setValue(0);
 	NodeSet s;

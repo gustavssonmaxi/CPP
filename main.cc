@@ -3,6 +3,9 @@
 #include "Graph.h"
 #include "dijkstra.h"
 
+int passedNodes(Node *, Edge &);
+int countedChars(Node *, Edge &);
+
 int main() {
     const std::string fileName = "graf.txt"; // Fast filnamn
     std::ifstream inputFile(fileName);
@@ -50,4 +53,32 @@ int main() {
     }
 
     return 0;
+}
+
+/* Räknar upp antalet noder passerade i grafen*/
+int passedNodes(Node *node, Edge &e)
+{
+
+    int count = 1;
+    while (node->getParent() != nullptr)
+    {
+        ++count;
+        node = node->getParent();
+    }
+    return count;
+}
+/* Räknar upp antalet tecken för varje nod i grafen
+ * som man har passerat*/
+int countedChars(Node *node, Edge &e)
+{
+
+    int count = 0;
+    while (node->getParent() != nullptr)
+    {
+        count += node->getName().length();
+        node = node->getParent();
+    }
+    count += e.getDestination()->getName().length();
+
+    return count;
 }
