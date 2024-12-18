@@ -31,7 +31,7 @@ Dijkstra::Dijkstra(Node* start){
     }
 }
 
-<<<<<<< HEAD
+
 void Dijkstra::printPath(Node* end) const {
     if (!end) {
         std::cerr << "Slutnoden är null!" << std::endl;
@@ -61,7 +61,9 @@ void Dijkstra::printPath(Node* end) const {
 
     // Skriv ut det totala avståndet
     std::cout << end->getValue() << std::endl;
-=======
+}
+
+
 void generalDijkstra(Node *start, int (*f)(Node *, Edge &))
 {
 	start->setValue(0);
@@ -82,5 +84,4 @@ void generalDijkstra(Node *start, int (*f)(Node *, Edge &))
 			}
 		}
 	}
->>>>>>> 641a799206efb6da77c6dc472b8e2571177ff04c
 }
