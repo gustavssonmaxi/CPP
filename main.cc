@@ -46,6 +46,8 @@ int main() {
         // Kör Dijkstra-algoritmen med startnoden
         graph.resetVals();
         Dijkstra dijkstra(start);
+        
+        std::cout << start->getValue() << end->getValue() << std::endl;
 
         // Anropa Dijkstra för att skriva ut vägen och avståndet
         dijkstra.printPath(end);
