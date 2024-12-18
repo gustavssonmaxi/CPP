@@ -26,13 +26,9 @@ PROGS = test_nodeset testEdge test_dijkstra main
 all: $(PROGS)
 
 
-nodeset_test: test_nodeset
+test_all: test_nodeset testEdge test_dijkstra
 	./test_nodeset
-
-edge_test: testEdge
 	./testEdge
-
-dijkstra_test: test_dijkstra
 	./test_dijkstra
 
 test_main: main

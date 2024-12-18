@@ -19,10 +19,10 @@ void Graph::addNode(const std::string& node) {
     if (find(node) == nullptr) {
         
         // MAKE_UNIQUE FINNS INTE I C++11
-        // nodeVector.push_back(std::unique_ptr<Node>(new Node(node))); 
+        nodeVector.push_back(std::unique_ptr<Node>(new Node(node))); 
         // ÄR ETT ALTERNATIV
 
-        nodeVector.push_back(std::make_unique<Node>(node)); // Using make_unique instead of new
+        // nodeVector.push_back(std::make_unique<Node>(node)); // Using make_unique instead of new
     }
 }
 
