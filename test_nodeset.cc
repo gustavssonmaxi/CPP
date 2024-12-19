@@ -3,6 +3,10 @@
 #include <cassert>
 #include <iostream>
 
+test_nodeset
+/** Test för att se om NodeSets meldemsfunktioner
+ * fungerar som förväntat m.h.a. assert.
+ */
 void test()
 {
     NodeSet ns{};

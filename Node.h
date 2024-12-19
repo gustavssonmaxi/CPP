@@ -37,10 +37,16 @@ public:
     Node* getParent() const;
 
 private:
+    /** Nodens namn. */
     std::string nodeName;
+    /** Nodens värde. */
     int nodeValue;
-    std::vector<Edge> edgeVector;   
-    Node* parent; // Ny medlemsvariabel för att spåra föregångaren
+    /** Vektor som innehåller nodens bågar. */
+    std::vector<Edge> edgeVector;
+    /** Spårar Dijkstrasalgoritmens väg genom noden.
+        Parent är den grannod som fanns ett steg tidigare
+        på vägen innan noden.*/   
+    Node* parent;
     
 };
  #endif

@@ -10,6 +10,11 @@ int countSteps(Node *node, Edge &)
     return node->getValue() + 1; // Ett hopp läggs till för varje edge
 }
 
+// Main för köra ett interaktivt program som utifrån användarens val kan köra en vanlig
+// Dijktras algoritm från en startnod till en ändnod i en graf som innehåller noderna i
+// graft.txt. Går även att köra en modifierad algoritm som kan ta den väg med minst antal
+// noder mellan start och ändnoden. Går även att definera en ny funktion och stoppa in i
+// generalDijkstra för att ändra dess vägval.
 int main()
 {
     const std::string fileName = "graf.txt"; // Fast filnamn

@@ -26,6 +26,11 @@ Node* find_and_test(const std::string& s, Graph& g)
     return n;
 }
 
+/** Test för att se om Graphklassen fungerar.
+ * Skapar en Graph med noder och tillghörande edges.
+ * Kollar sedan med assert om man kan hitta noderna och om 
+ * man kan använda en nods medlemsfunktioner som förväntat.
+ */
 void test_graph()
 {
     Graph g{};

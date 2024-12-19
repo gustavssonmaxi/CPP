@@ -5,10 +5,14 @@
 #include <sstream>
 #include "Graph.h"
 
+// Konstruktorn för Graph som skapar ett Graphobjekt.
 Graph::Graph()
 {
 }
 
+// Konstruktorn för Graph om input är en istream från en fil.
+// Skapar en Graph som innehåller noderna med sina bågar och deras värden
+// om filen har formatet: Nodnamn: Båglängd destinationsNod. Som ex. Lund: 12 Dalby
 Graph::Graph(std::istream &in)
 {
     std::string line;
@@ -52,6 +56,7 @@ Graph::Graph(std::istream &in)
     }
 }
 
+// Lägger till noder till Graphobjektet.
 void Graph::addNode(const std::string &node)
 {
     if (find(node) == nullptr)
@@ -62,6 +67,7 @@ void Graph::addNode(const std::string &node)
     }
 }
 
+// Söker efter en Node i en Graph och retunerar denna om den finns.
 Node *Graph::find(const std::string &node)
 {
     auto it = std::find_if(nodeVector.begin(), nodeVector.end(),
@@ -80,6 +86,7 @@ Node *Graph::find(const std::string &node)
     }
 }
 
+// Återställer nodernas värden i en Graph till maxvärdet som en integer kan ha.
 void Graph::resetVals()
 {
     for (auto &node : nodeVector)

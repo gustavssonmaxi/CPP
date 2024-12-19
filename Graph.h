@@ -28,6 +28,7 @@ public:
     std::vector<std::unique_ptr<Node>>::iterator end(){return nodeVector.end();};
 
 private:
+    // Vektorn med noder som finns i ett Grapobjekt.
     std::vector<std::unique_ptr<Node>> nodeVector;
 };
 
