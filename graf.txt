@@ -8,10 +8,8 @@ Dalby: 5 Torna Hallestad
 Dalby: 8 Staffanstorp
 Dalby: 12 Lund
 Dalby: 11 Veberod
-Dalby: 1 Malmo
 Veberod: 11 Dalby
 Veberod: 8 Torna Hallestad
-Veberod: 1 Malmo
 Sodra Sandby: 12 Lund
 Sodra Sandby: 4 Flyinge
 Sodra Sandby: 8 Torna Hallestad
@@ -32,5 +30,3 @@ Kavlinge: 13 Bjarred
 Kavlinge: 19 Lund
 Kavlinge: 20 Lomma
 Kavlinge: 25 Sodra Sandby
-Malmo: 1 Veberod
-Malmo: 1 Dalby
