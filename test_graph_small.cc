@@ -28,7 +28,7 @@ void test_node_and_edge()
     assert(n.getEdges().size() == 1);
     assert(m.getEdges().size() == 0);
 
-    auto& p = *n.getEdges().begin();
+    auto &p = *n.getEdges().begin();
     assert(p.getDestination()->getName() == "Test2");
     assert(p.getLength() == 17);
 
@@ -39,10 +39,11 @@ void test_node_and_edge()
     cout << "test_node_and_edge passed" << endl;
 }
 
-void print_neighbours(Node* n)
+void print_neighbours(Node *n)
 {
     cout << "Anslutningar från " << n->getName() << "(" << n->getValue() << ") :\n";
-    for(auto de : n->getEdges()){
+    for (auto de : n->getEdges())
+    {
         cout << de.getLength() << " to " << de.getDestination()->getName() << endl;
     }
 }
@@ -59,22 +60,24 @@ void test_edges()
     Node n_flyinge{"Flyinge"};
     Node n_veberod{"Veberod"};
 
-     n_lund.addEdge(&n_dalby,12);
-     n_lund.addEdge(&n_sandby,12);
-     n_dalby.addEdge(&n_veberod,11);
-     n_dalby.addEdge(&n_hallestad,5);
-     n_sandby.addEdge(&n_lund,12);
-     n_sandby.addEdge(&n_flyinge,4);
-     n_hallestad.addEdge(&n_veberod,8);
+    n_lund.addEdge(&n_dalby, 12);
+    n_lund.addEdge(&n_sandby, 12);
+    n_dalby.addEdge(&n_veberod, 11);
+    n_dalby.addEdge(&n_hallestad, 5);
+    n_sandby.addEdge(&n_lund, 12);
+    n_sandby.addEdge(&n_flyinge, 4);
+    n_hallestad.addEdge(&n_veberod, 8);
 
 #ifdef INFO
     print_neighbours(&n_dalby);
 #endif
-    
-    std::set<std::pair<std::string,int>> neighbours{{"Veberod",11},{"Torna Hallestad",5}};
-    for(auto de : n_dalby.getEdges()){
+
+    std::set<std::pair<std::string, int>> neighbours{{"Veberod", 11}, {"Torna Hallestad", 5}};
+    for (auto de : n_dalby.getEdges())
+    {
         auto res = std::find_if(neighbours.begin(), neighbours.end(),
-                [&](const std::pair<std::string,int> &x){return de.getDestination()->getName() == x.first;});
+                                [&](const std::pair<std::string, int> &x)
+                                { return de.getDestination()->getName() == x.first; });
         assert(res != neighbours.end());
 #ifdef INFO
         cout << "found " << res->first << endl;
@@ -83,7 +86,6 @@ void test_edges()
     }
     cout << "test_edges passed" << endl;
 }
-
 
 int main()
 {

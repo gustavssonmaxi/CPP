@@ -9,17 +9,18 @@
 using std::cout;
 using std::endl;
 
-void print_neighbours(Node* n)
+void print_neighbours(Node *n)
 {
     cout << "Anslutningar från " << n->getName() << "(" << n->getValue() << ") :\n";
-    for(auto de : n->getEdges()){
+    for (auto de : n->getEdges())
+    {
         cout << de.getLength() << " to " << de.getDestination()->getName() << endl;
     }
 }
 
-Node* find_and_test(const std::string& s, Graph& g)
+Node *find_and_test(const std::string &s, Graph &g)
 {
-    Node * n = g.find(s);
+    Node *n = g.find(s);
     assert(n != nullptr);
     assert(n->getName() == s);
     assert(n->getValue() == std::numeric_limits<int>::max()); // Ändrar till std::numeric_limits<int>::max() från Node::max_value
@@ -28,7 +29,7 @@ Node* find_and_test(const std::string& s, Graph& g)
 
 /** Test för att se om Graphklassen fungerar.
  * Skapar en Graph med noder och tillghörande edges.
- * Kollar sedan med assert om man kan hitta noderna och om 
+ * Kollar sedan med assert om man kan hitta noderna och om
  * man kan använda en nods medlemsfunktioner som förväntat.
  */
 void test_graph()
@@ -51,21 +52,20 @@ void test_graph()
 
     n_lund->setValue(17);
     auto n2 = g.find("Lund");
-    assert(n2->getValue()==17);
+    assert(n2->getValue() == 17);
 
     auto n3 = g.find("Flyinge");
     n_flyinge->setValue(42);
-    assert(n3->getValue()==42);
+    assert(n3->getValue() == 42);
 
     g.resetVals();
-    for(auto it = g.begin(); it != g.end(); ++it){
+    for (auto it = g.begin(); it != g.end(); ++it)
+    {
         assert((*it)->getValue() == std::numeric_limits<int>::max()); // Ändrar till std::numeric_limits<int>::max() från Node::max_value
     }
 
-
     cout << "test_graph passed" << endl;
 }
-
 
 int main()
 {
