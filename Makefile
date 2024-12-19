@@ -25,6 +25,11 @@ PROGS = test_nodeset test_dijkstra test_graph_nofile test_graph_small test_graph
 
 all: $(PROGS)
 
+test_og: test_dijkstra test_graph_nofile test_graph_small test_nodeset
+	./test_dijkstra
+	./test_graph_nofile
+	./test_graph_small
+	./test_nodeset
 
 test_all: test_nodeset test_dijkstra test_graph_nofile test_graph_small test_graph_file
 	./test_nodeset
