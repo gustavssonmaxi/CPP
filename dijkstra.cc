@@ -10,7 +10,7 @@ där värdet anger det kortaste avståndet från noden start.
 Alla noder förutsätts, när funktionen anropas, ha ett värde som är
 större än alla faktiska avstånd i grafen.
 */
-Dijkstra::Dijkstra(Node* start){
+void dijkstra(Node* start){
     start->setValue(0);                                     //Sätter startnodes längd till sig själv till 0
     NodeSet dijkstraNodes{};                                //Skapar en tom nodeset
     dijkstraNodes.add(start);                               //Lägger till startnoden till nodeset
@@ -33,7 +33,7 @@ Dijkstra::Dijkstra(Node* start){
 }
 
 
-void Dijkstra::printPath(Node* end) const {
+void printPath(Node* end){
     if (!end) {
         std::cerr << "Slutnoden är null!" << std::endl;
         return;
