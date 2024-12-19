@@ -3,14 +3,15 @@
 #include "Graph.h"
 #include "dijkstra.h"
 #include "Node.h"
-#include <cassert>
 
-int passedNodes(Node *, Edge &);
-int countedChars(Node *, Edge &);
+// Funktion för att räkna steg (antal hopp)
+int countSteps(Node *node, Edge &)
+{
+    return node->getValue() + 1; // Ett hopp läggs till för varje edge
+}
 
 int main()
 {
-    
     const std::string fileName = "graf.txt"; // Fast filnamn
     std::ifstream inputFile(fileName);
 
@@ -49,12 +50,38 @@ int main()
             return 1;
         }
 
-        // Kör Dijkstra-algoritmen med startnoden
-        graph.resetVals();
-        Dijkstra dijkstra(start);
+        // Fråga användaren om kriterium
+        char choice;
+        std::cout << "Välj beräkningskriterium:\n"
+                  << "A) Kortaste väg enligt avstånd\n"
+                  << "B) Kortaste väg enligt antal steg\n"
+                  << "Val: ";
+        std::cin >> choice;
 
-        // Anropa Dijkstra för att skriva ut vägen och avståndet
-        dijkstra.printPath(end);
+        // Kör algoritmen baserat på användarens val
+        graph.resetVals();
+        if (choice == 'A' || choice == 'a')
+        {
+            dijkstra(start); // Klassisk Dijkstra
+            printPath(end);
+        }
+        else if (choice == 'B' || choice == 'b')
+        {
+            generalDijkstra(start, countSteps); // Generaliserad Dijkstra med antal steg
+            if (end->getValue() == std::numeric_limits<int>::max())
+            {
+                std::cout << "Ingen väg hittades från " << startNode << " till " << endNode << ".\n";
+            }
+            else
+            {
+                printPath(end);
+            }
+        }
+        else
+        {
+            std::cerr << "Ogiltigt val! Avbryter programmet.\n";
+            return 1;
+        }
     }
     catch (const std::exception &e)
     {
@@ -63,81 +90,4 @@ int main()
     }
 
     return 0;
-
 }
-
-/* Räknar upp antalet noder passerade i grafen*/
-int passedNodes(Node *node, Edge &e)
-{
-    (void) e; //Använder inte edge i denna funktion
-    int count = 1;
-    while (node->getParent() != nullptr)
-    {
-        ++count;
-        node = node->getParent();
-    }
-    return count;
-}
-/* Räknar upp antalet tecken för varje nod i grafen
- * som man har passerat*/
-int countedChars(Node *node, Edge &e)
-{
-
-    int count = 0;
-    while (node->getParent() != nullptr)
-    {
-        count += node->getName().length();
-        node = node->getParent();
-    }
-    count += e.getDestination()->getName().length();
-
-    return count;
-}
-
-/* main för testa generalDijkstra
-    std::cout << "Hello Dijkstra fan!" << std::endl
-         << std::endl;
-
-    Graph g{};
-
-    g.addNode("Sweden");
-    g.addNode("Qatar");
-    g.addNode("Atlantis");
-    g.addNode("Russia");
-    g.addNode("Denmark");
-
-    g.find("Sweden")->addEdge(g.find("Denmark"), 10);
-    g.find("Sweden")->addEdge(g.find("Russia"), 20);
-
-    g.find("Denmark")->addEdge(g.find("Sweden"), 10);
-    g.find("Denmark")->addEdge(g.find("Russia"), 5);
-    g.find("Denmark")->addEdge(g.find("Qatar"), 30);
-
-    g.find("Russia")->addEdge(g.find("Sweden"), 20);
-    g.find("Russia")->addEdge(g.find("Qatar"), 10);
-    g.find("Russia")->addEdge(g.find("Denmark"), 5);
-
-    g.find("Qatar")->addEdge(g.find("Russia"), 10);
-    g.find("Qatar")->addEdge(g.find("Denmark"), 30);
-    g.find("Qatar")->addEdge(g.find("Atlantis"), 20);
-
-    g.find("Atlantis")->addEdge(g.find("Qatar"), 20);
-
-    dijkstra(g.find("Sweden"));
-    printPath(g.find("Qatar"));
-    assert(g.find("Qatar")->getValue() == 25);
-
-    printPath(g.find("Russia"));
-    assert(g.find("Russia")->getValue() == 15);
-
-    g.resetVals();
-
-    generalDijkstra(g.find("Sweden"), passedNodes);
-    printPath(g.find("Denmark"));
-
-    g.resetVals();
-
-    generalDijkstra(g.find("Sweden"), countedChars);
-    printPath(g.find("Atlantis"));
-
-    */
