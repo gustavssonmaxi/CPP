@@ -13,6 +13,7 @@ public:
 
     Graph(std::istream &in);
     // Lägger till noden i nodeVector
+    
     void addNode(const std::string &addNodeName);
 
     // Hittar en nod med namnet s och retunerar noden

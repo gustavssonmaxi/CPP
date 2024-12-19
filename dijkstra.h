@@ -8,15 +8,13 @@ där värdet anger det kortaste avståndet från noden start.
 Alla noder förutsätts, när funktionen anropas, ha ett värde som är
 större än alla faktiska avstånd i grafen.
 */
-/*
-class Dijkstra {
- public:
-     explicit Dijkstra(Node* start);
-     void printPath(Node* end) const;
-};
-*/
-
 void dijkstra(Node *start);
+
+// Skriver ut noderna på vägen från start till end.
 void printPath(Node *end);
+
+// En generel Dijkstraalgoritm som tar in en startnod och en
+// funktion. Funktionen avgör vad nodsen ska få för value
+// sett till startnoden.
 void generalDijkstra(Node *start, int (*f)(Node *, Edge &));
 #endif
