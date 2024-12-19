@@ -7,7 +7,7 @@ Edge::Edge(Node* destination, int length){
 }
 
 /** Hämtar bågens destination. */
-Node* Edge::getDestination(){
+Node* Edge::getDestination() const{
     return destinationNode;
 }
 
