@@ -30,3 +30,4 @@ Kavlinge: 13 Bjarred
 Kavlinge: 19 Lund
 Kavlinge: 20 Lomma
 Kavlinge: 25 Sodra Sandby
+Flyinge: 4 Sodra Sandby
