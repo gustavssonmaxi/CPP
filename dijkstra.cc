@@ -68,20 +68,20 @@ void Dijkstra::printPath(Node* end) const {
 void generalDijkstra(Node *start, int (*f)(Node *, Edge &))
 {
 	start->setValue(0);
-	NodeSet s;
-	s.add(start);
-	while (!s.isEmpty())
+	NodeSet generalDijkstraNodes{};
+	generalDijkstraNodes.add(start);
+	while (!generalDijkstraNodes.isEmpty())
 	{
-		Node *n = s.removeMin();
-		for (Edge e : n->getEdges())
+		Node *node = generalDijkstraNodes.removeMin();
+		for (Edge edge : node->getEdges())
 		{
-			int a = f(n, e);
-			Node *d = e.getDestination();
-			if (a < d->getValue())
+			int length = f(node, edge);
+			Node *destNode = edge.getDestination();
+			if (length < destNode->getValue())
 			{
-				d->setValue(a);
-				d->setParent(n);
-				s.add(d);
+				destNode->setValue(length);
+				destNode->setParent(node);
+				generalDijkstraNodes.add(destNode);
 			}
 		}
 	}
