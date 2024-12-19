@@ -39,9 +39,6 @@ test_all: test_nodeset test_dijkstra test_graph_nofile test_graph_small test_gra
 	./test_graph_file
 	./test_general_dijkstra
 
-test_general: test_general_dijkstra
-	./test_general_dijkstra
-
 test_main: main
 	./main
 
