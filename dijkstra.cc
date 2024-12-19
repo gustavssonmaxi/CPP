@@ -75,11 +75,11 @@ void generalDijkstra(Node *start, int (*f)(Node *, Edge &))
 		Node *node = generalDijkstraNodes.removeMin();
 		for (Edge edge : node->getEdges())
 		{
-			int newLength = f(node, edge);
+			int length = f(node, edge);
 			Node *destNode = edge.getDestination();
-			if (newLength < destNode->getValue())
+			if (length < destNode->getValue())
 			{
-				destNode->setValue(newLength);
+				destNode->setValue(length);
 				destNode->setParent(node);
 				generalDijkstraNodes.add(destNode);
 			}
