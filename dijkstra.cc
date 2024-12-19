@@ -2,6 +2,7 @@
 #include <iostream>
 #include "dijkstra.h"
 #include "NodeSet.h"
+#include <limits>
 
 
 /** Dijkstras algoritm. Varje nod som kan nås från start ges ett värde,
