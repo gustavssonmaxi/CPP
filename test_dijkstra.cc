@@ -7,6 +7,11 @@
 using std::cout;
 using std::endl;
 
+/** Test för att se om Dijkstras algoritm fungerar.
+ * Skapar noder och tillghörande edges och utför en
+ * Dijkstraberäkning för att uppdatera nodernas värden.
+ * Kollar sedan med assert om de blev som förväntat.
+ */
 void test()
 {
     Node lund{"Lund"};
@@ -34,7 +39,7 @@ void test()
     assert(veberod.getValue() == 23);
     assert(flyinge.getValue() == 16);
 
-
+// Skriver ut värdena om ifdef ändras till ifndef för felsökning
 #ifdef INFO
     cout << "----\nAll distances from Lund:\n";
 

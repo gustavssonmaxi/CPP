@@ -20,6 +20,7 @@ public:
     Node* removeMin();
 
 private:
+    /**Vektorn som innehåller nodsen i mängden NodeSet */
     std::vector<Node*> nodeVector;
 };
 #endif

@@ -9,6 +9,9 @@
 using std::cout;
 using std::endl;
 
+/** Test för att se om node och edges meldemsfunktioner
+ * fungerar som förväntat m.h.a. assert.
+ */
 void test_node_and_edge()
 {
     Node n("Test");
@@ -44,6 +47,9 @@ void print_neighbours(Node* n)
     }
 }
 
+/** Test för att se om Edges meldemsfunktioner
+ * fungerar som förväntat m.h.a. assert.
+ */
 void test_edges()
 {
     Node n_lund{"Lund"};

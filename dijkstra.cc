@@ -32,7 +32,7 @@ void dijkstra(Node* start){
     }
 }
 
-
+//Skriver ut noderna på vägen från start till end.
 void printPath(Node* end){
     if (!end) {
         std::cerr << "Slutnoden är null!" << std::endl;
@@ -64,7 +64,9 @@ void printPath(Node* end){
     std::cout << end->getValue() << std::endl;
 }
 
-
+//En generel Dijkstraalgoritm som tar in en startnod och en 
+//funktion. Funktionen avgör vad nodsen ska få för value
+//sett till startnoden.
 void generalDijkstra(Node *start, int (*f)(Node *, Edge &))
 {
 	start->setValue(0);
