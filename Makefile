@@ -21,15 +21,16 @@ LDFLAGS =   -g
 #LDFLAGS +=  -stdlib=libc++
 
 # Targets
-PROGS = test_nodeset testEdge test_dijkstra test_graph_small main
+PROGS = test_nodeset testEdge test_dijkstra test_graph_small test_graph_nofile main
 
 all: $(PROGS)
 
 
-test_all: test_nodeset testEdge test_dijkstra test_graph_small
+test_all: test_nodeset testEdge test_dijkstra test_graph_nofile test_graph_small
 	./test_nodeset
 	./testEdge
 	./test_dijkstra
+	./test_graph_nofile
 	./test_graph_small
 
 test_main: main
