@@ -3,6 +3,7 @@
 #include "Graph.h"
 #include "dijkstra.h"
 #include "Node.h"
+#include <limits>
 
 // Funktion för att räkna steg (antal hopp)
 int countSteps(Node *node, Edge &)
