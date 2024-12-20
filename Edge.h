@@ -3,12 +3,11 @@
 
 #include <string>
 
-// Forward Declaration av Node
+/** Forward deklaration av Node */
 class Node;
 
 class Edge
 {
-
 public:
     /** Skapa en ny båge till noden destination, med längden length. */
     Edge(Node *destination, int length);

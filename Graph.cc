@@ -5,14 +5,15 @@
 #include <sstream>
 #include "Graph.h"
 
-// Konstruktorn för Graph som skapar ett Graphobjekt.
+/** Konstruktorn för Graph som skapar ett Graphobjekt. */
 Graph::Graph()
 {
 }
 
-// Konstruktorn för Graph om input är en istream från en fil.
-// Skapar en Graph som innehåller noderna med sina bågar och deras värden
-// om filen har formatet: Nodnamn: Båglängd destinationsNod. Som ex. Lund: 12 Dalby
+/** Konstruktorn för Graph om input är en istream från en fil.
+Skapar en Graph som innehåller noderna med sina bågar och deras värden
+om filen har formatet: Nodnamn: Båglängd destinationsNod. Som ex. Lund: 12 Dalby
+*/
 Graph::Graph(std::istream &in)
 {
     std::string line;
@@ -27,13 +28,11 @@ Graph::Graph(std::istream &in)
             std::getline(lineStream, endNode))
         {
 
-            // Trimma whitespace
             startNode.erase(0, startNode.find_first_not_of(" \t"));
             startNode.erase(startNode.find_last_not_of(" \t") + 1);
             endNode.erase(0, endNode.find_first_not_of(" \t"));
             endNode.erase(endNode.find_last_not_of(" \t") + 1);
 
-            // Lägg till noder och bågen
             addNode(startNode);
             addNode(endNode);
 
@@ -56,18 +55,16 @@ Graph::Graph(std::istream &in)
     }
 }
 
-// Lägger till noder till Graphobjektet.
+/** Lägger till noder till Graphobjektet. */
 void Graph::addNode(const std::string &node)
 {
     if (find(node) == nullptr)
     {
-
         nodeVector.push_back(std::unique_ptr<Node>(new Node(node)));
-        // nodeVector.push_back(std::make_unique<Node>(node)); // Using make_unique instead of new
     }
 }
 
-// Söker efter en Node i en Graph och retunerar denna om den finns.
+/** Söker efter en Node i en Graph och retunerar denna om den finns. */
 Node *Graph::find(const std::string &node)
 {
     auto it = std::find_if(nodeVector.begin(), nodeVector.end(),
@@ -86,7 +83,7 @@ Node *Graph::find(const std::string &node)
     }
 }
 
-// Återställer nodernas värden i en Graph till maxvärdet som en integer kan ha.
+/** Återställer nodernas värden i en Graph till maxvärdet för int. */
 void Graph::resetVals()
 {
     for (auto &node : nodeVector)

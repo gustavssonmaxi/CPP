@@ -10,11 +10,12 @@ större än alla faktiska avstånd i grafen.
 */
 void dijkstra(Node *start);
 
-// Skriver ut noderna på vägen från start till end.
+/** Skriver ut noderna på vägen från start till end. */
 void printPath(Node *end);
 
-// En generel Dijkstraalgoritm som tar in en startnod och en
-// funktion. Funktionen avgör vad nodsen ska få för value
-// sett till startnoden.
+/** En generel Dijkstraalgoritm som tar in en startnod och en
+funktion. Funktionen avgör vad noden ska få för value
+sett till startnoden.
+*/
 void generalDijkstra(Node *start, int (*f)(Node *, Edge &));
 #endif

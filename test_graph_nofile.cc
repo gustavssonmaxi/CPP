@@ -23,15 +23,15 @@ Node *find_and_test(const std::string &s, Graph &g)
     Node *n = g.find(s);
     assert(n != nullptr);
     assert(n->getName() == s);
-    assert(n->getValue() == std::numeric_limits<int>::max()); // Ändrar till std::numeric_limits<int>::max() från Node::max_value
+    assert(n->getValue() == std::numeric_limits<int>::max());
     return n;
 }
 
 /** Test för att se om Graphklassen fungerar.
- * Skapar en Graph med noder och tillghörande edges.
- * Kollar sedan med assert om man kan hitta noderna och om
- * man kan använda en nods medlemsfunktioner som förväntat.
- */
+Skapar en Graph med noder och tillghörande edges.
+Kollar sedan med assert om man kan hitta noderna och om
+man kan använda en nods medlemsfunktioner som förväntat.
+*/
 void test_graph()
 {
     Graph g{};
@@ -61,7 +61,7 @@ void test_graph()
     g.resetVals();
     for (auto it = g.begin(); it != g.end(); ++it)
     {
-        assert((*it)->getValue() == std::numeric_limits<int>::max()); // Ändrar till std::numeric_limits<int>::max() från Node::max_value
+        assert((*it)->getValue() == std::numeric_limits<int>::max());
     }
 
     cout << "test_graph passed" << endl;

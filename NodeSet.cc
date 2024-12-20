@@ -1,6 +1,6 @@
+#include <algorithm>
 #include "NodeSet.h"
 #include "Node.h"
-#include <algorithm>
 
 /** Skapar en tom mängd av noder. */
 NodeSet::NodeSet()
@@ -18,7 +18,7 @@ void NodeSet::add(Node *node)
 
     if (it == nodeVector.end())
     {
-        nodeVector.push_back(node); // Om noden inte hittas läggs den till
+        nodeVector.push_back(node);
     }
 }
 
@@ -34,15 +34,15 @@ Om mängden är tom returneras null. */
 Node *NodeSet::removeMin()
 {
     if (nodeVector.empty())
-    { // Om nodeVector är tom retuneras en nollpekare
+    {
         return nullptr;
     }
-    std::sort(nodeVector.begin(), nodeVector.end(), // Sortera vektorn med lägsta value först
+    std::sort(nodeVector.begin(), nodeVector.end(),
               [](Node *a, Node *b)
               { return a->getValue() < b->getValue(); });
 
-    Node *minNode = nodeVector.front();   // Retunerar referens till första noden
-    nodeVector.erase(nodeVector.begin()); // Tar bort första noden
+    Node *minNode = nodeVector.front();
+    nodeVector.erase(nodeVector.begin());
 
-    return minNode; // Retunerar noden med minsta value.
+    return minNode;
 }

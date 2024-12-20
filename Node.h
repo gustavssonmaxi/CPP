@@ -4,7 +4,7 @@
 #include <vector>
 #include "Edge.h"
 
-// Forward declaration Edge
+/** Forward deklaration av Edge */
 class Edge;
 
 class Node
@@ -39,10 +39,13 @@ public:
 private:
     /** Nodens namn. */
     std::string nodeName;
+
     /** Nodens värde. */
     int nodeValue;
+
     /** Vektor som innehåller nodens bågar. */
     std::vector<Edge> edgeVector;
+
     /** Spårar Dijkstrasalgoritmens väg genom noden.
         Parent är den grannod som fanns ett steg tidigare
         på vägen innan noden.*/

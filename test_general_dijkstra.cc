@@ -1,25 +1,24 @@
 #include <iostream>
 #include <cassert>
-// #include "graph.h"
 #include "dijkstra.h"
 #include "Node.h"
 
 using std::cout;
 using std::endl;
 
-// Funktion för att räkna steg (antal hopp)
+/** Funktion för att räkna steg */
 int countSteps(Node *node, Edge &)
 {
-    return node->getValue() + 1; // Ett hopp läggs till för varje edge
+    return node->getValue() + 1;
 }
 
 /** Test för att se om generalDijkstras algoritm fungerar.
- * Skapar noder och tillghörande edges och utför en
- * generalDijkstraberäkning med funktionen countStep
- * för att uppdatera nodernas värden. Värdena blir nu istället
- * antal hopp ifrån startnoden.
- * Kollar sedan med assert om de blev som förväntat.
- */
+Skapar noder och tillghörande edges och utför en
+generalDijkstraberäkning med funktionen countStep
+för att uppdatera nodernas värden. Värdena blir nu istället
+antal hopp ifrån startnoden.
+Kollar sedan med assert om de blev som förväntat.
+*/
 void test()
 {
     Node astorp{"Astorp"};
@@ -43,7 +42,7 @@ void test()
     assert(klippan.getValue() == 2);
     assert(perstorp.getValue() == 1);
 
-// Skriver ut värdena om ifdef ändras till ifndef för felsökning
+/** Skriver ut värdena om ifdef ändras till ifndef för felsökning */
 #ifdef INFO
     cout << "----\nAll distances from Lund:\n";
 
@@ -53,7 +52,7 @@ void test()
         cout << endl;
     }
 #endif
-    cout << "test_dijkstra passed" << endl;
+    cout << "test_general_dijkstra passed" << endl;
 }
 
 int main()

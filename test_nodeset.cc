@@ -4,8 +4,8 @@
 #include <iostream>
 
 /** Test för att se om NodeSets meldemsfunktioner
- * fungerar som förväntat m.h.a. assert.
- */
+fungerar som förväntat m.h.a. assert.
+*/
 void test()
 {
     NodeSet ns{};
