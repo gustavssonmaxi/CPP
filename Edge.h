@@ -1,7 +1,7 @@
 #ifndef EDGE_H
 #define EDGE_H
 
-#include <string>
+// #include <string>
 
 /** Forward deklaration av Node */
 class Node;
